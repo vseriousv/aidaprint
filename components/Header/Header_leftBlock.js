@@ -1,14 +1,36 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
+import { Query } from 'react-apollo'
+import gql from 'graphql-tag'
+
+export const allContactsQuery = gql`
+query users {
+  contacts{
+	title
+    type
+    context_1
+  	context_2
+  }
+}
+`
 
 export default class Header_leftBlock extends Component {
     render(){
         return(
-        <div className="callBlock d-lg-flex">
-            <div className='callMenu callMenuDesktop d-lg-block d-none'>
-                <a href="tel:+73832079393"><span><b>+7 (383) 207 93 93</b> (Новосибирск)</span></a><br />
-                <a href="tel:88005556153"><span><b>8 800 555 61 53</b> (Звонок бесплатный)</span></a>
-            </div>
-        </div>
+        <Query query={allContactsQuery}>
+             {({loading, error, data: { contacts }, fetchMore }) => {
+                if (error) return <ErrorMessage message='Error loading posts.' />
+                if (loading) return <div>Loading</div>
+                return (
+                    <div className="callBlock d-lg-flex">
+                    <div className='callMenu callMenuDesktop d-lg-block d-none'>
+                     {contacts.map((contact, index) =>(
+                        <a key={index} href={"tel:"+contact.context_1}><span><b>{contact.context_1}</b> {contact.context_2}</span><br /></a>
+                     ))}                
+                    </div>
+                    </div>
+                 )
+             }}
+        </Query>
         );
     }
 }
