@@ -5,28 +5,24 @@ import Header_leftBlock         from './Header_leftBlock'
 import Header_rightBlock        from './Header_rightBlock'
 import Header_centerBlock       from './Header_centerBlock'
 import Header_navbar            from './Header_navbar'
+import PaddingComponent         from './PaddingComponent'
 
 import './Header.less';
 
+
+
 const Header = ({ router: { pathname } }) => (
+  
   <header>
-    <Container>
-      <Row>
+    <Container className="header-Bar">
+      <Row className="py-3">
         <Col className="my-auto" md={4} sm={1}><Header_leftBlock /></Col> 
         <Col className="my-auto" md={4} sm={10}><Header_centerBlock /></Col> 
         <Col className="my-auto" md={4} sm={1}><Header_rightBlock /></Col>      
       </Row>
     </Container>
     <Header_navbar />
-
-
-    <Link prefetch href='/'>
-      <a className={pathname === '/' ? 'is-active' : ''}>Home</a>
-    </Link>
-    <Link prefetch href='/about'>
-      <a className={pathname === '/about' ? 'is-active' : ''}>About</a>
-    </Link>
-
+    <PaddingComponent />
   </header>
 )
 

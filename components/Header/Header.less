@@ -1,11 +1,120 @@
 @import '../../styles/_global.less';
-
-.logoHeader{
-    width: 100%;
-    max-width: 250px; 
+.header-Bar{
+    height: 80px;
 }
+.callMenuDesktop{
+  a{
+    text-decoration: none;
+    span{
+      font-size: 14px;
+      color: #00aaee !important;
+    }
+    &:hover{
+      filter: grayscale(0.2)
+    }
+  }
+}
+.logoHeader{
+  width: 100%;
+  max-width: 250px; 
+}
+.navbar-color-grey{
+    height:50px;
+  background: #efefef;
+  line-height: 33px;
+  border-bottom: 1px solid #acacac;
+  ul{
+    margin: 0 auto;
+    padding: 0;
+    li{
+      display: inline;
+      text-transform: uppercase;
+      font-size: 10px;
+      font-weight: bold;
+      @media (min-width: 992px){
+         font-size: 12px; 
+      }
+      a{
+        color: black;
+        text-decoration: none;
+        &.active{
+          color: #00aaee !important;
+        }
+        &:hover{
+          color: #00aaee !important;
+        }
+      }
+    }
+  }
+}
+.windowCloseClick{
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;  
+}
+.MegaMenu-top-one{top: 130px; position: absolute;}
+.MegaMenu-top-two{top: 50px; position: fixed;}
 
-.navbar-topMenu{
-    background: #efefef;
-    line-height: 33px;
+.MegaMenu{
+    left:0;
+    right:0;
+    bottom:-80px;
+    background: #E3E3E3;
+    .row{        
+        &.megaMenuRow{
+            background: #efefef; 
+        }
+        .SectionsInMegaMenu{
+            margin: 5px 0 0;
+            padding: 5px 10px;
+            border-bottom: 2px solid black;
+            cursor: pointer;
+            &.active{
+                color: #00aeef!important;
+                border-bottom-color: #00aeef!important;
+            }
+            &:hover{
+                color: #00aeef;
+                border-bottom-color: #00aeef;
+                transition: 0.1s;
+            }
+            &:not(:hover){
+                color: black;
+                border-bottom-color: black; 
+                transition: 0.1s; 
+            }
+        }
+        .pagesViewMegaMenu{
+            margin:15px 5px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(167px, 1fr));
+            grid-gap: 10px;
+            a{
+                color: black;                
+                &:hover{
+                    text-decoration: none;
+                    color: #00aeef!important; 
+                }
+            }
+            .insertPagesOnMegamenu{
+                img{
+                    height: auto;
+                }
+                p{
+                    font-size: 12px;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    text-align: center;
+                    margin-top: 5px;
+                }
+            }
+        }
+    }
+  }
+
+.padding-top-withFixedMenu{
+    height: 50px;
 }

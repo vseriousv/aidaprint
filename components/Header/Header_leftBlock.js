@@ -21,14 +21,14 @@ export default class Header_leftBlock extends Component {
                 if (error) return <ErrorMessage message='Error loading posts.' />
                 if (loading) return <div>Loading</div>
                 return (
-                    <div className="callBlock d-lg-flex">
+                  <div className="callBlock d-lg-flex">
                     <div className='callMenu callMenuDesktop d-lg-block d-none'>
                      {contacts.map((contact, index) =>(
                         <a key={index} href={"tel:"+contact.context_1}><span><b>{contact.context_1}</b> {contact.context_2}</span><br /></a>
                      ))}                
                     </div>
-                    </div>
-                 )
+                  </div>
+                )
              }}
         </Query>
         );
