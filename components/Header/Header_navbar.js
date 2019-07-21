@@ -4,6 +4,8 @@ import gql                      from 'graphql-tag'
 import { Container, Row, Col }  from 'react-bootstrap'
 import Link                     from 'next/link'
 
+import Header_MobilMenu         from './Header_MobilMenu'
+
 export const componentNavbarQuery = gql`
 query navbar {
   componentNavbar{
@@ -98,7 +100,7 @@ export default class Header_navbar extends Component {
     targetElement.classList.remove('d-none');
   }
 
-  render(){        
+  render(){         
       return(
       <Query query={componentNavbarQuery}>
             {({loading, error, data: { componentNavbar }, fetchMore }) => {
@@ -106,35 +108,38 @@ export default class Header_navbar extends Component {
               if (loading) return <div>Loading</div>
               return (
                 <div id="fixedMenuBar" className="container-fluid ">
-                  <Row className="navbar-color-grey">
+                  <Row className="navbar-color-grey d-flex justify-content-between">
                     <ul className="nav d-none d-md-flex">
                         {componentNavbar[0].menu_items.map((item, index)=>{
                             if(item.link == "#"){
                             return(
-                              <li key={index} className="nav-item">
-                                <a 
+                              <li key={item.id} className="nav-item">
+                                <Link prefetch href={item.link}>
+                                  <a 
                                   id={"navbarItemID"+item.id} 
                                   className="nav-link statusActive" 
-                                  href={item.link}
                                   data-megamenu={"megaMenu"+item.id}
                                   onClick={this.handleClick}>{item.name}</a>
+                                </Link>   
                               </li>
                             )}else {
                               return(
-                              <li key={index} className="nav-item">
-                                <a 
+                              <li key={item.id} className="nav-item">
+                                <Link prefetch href={item.link}>
+                                  <a 
                                   id={"navbarItemID"+item.id} 
                                   className="nav-link statusActive" 
-                                  href={item.link}
                                   data-megamenu={"megaMenu"+item.id}
                                   >{item.name}</a>
-                              </li>
+                                </Link>
+                              </li>                              
                               )}
                         })}
                     </ul>
-                    <div className="col-1 d-md-none">М</div>
-                    <div className="col-sm-10 col-9 d-md-none"></div>
-                    <div className="col-1 d-md-none">S</div>
+                    <div className="col-6 d-md-none my-auto d-flex justify-content-start">
+                      <Header_MobilMenu />
+                    </div>                
+                    <div className="col-6 d-md-none my-auto d-flex justify-content-end">S</div>
                   </Row>
                   {/*Отображение мегаМеню
                     Кликая на кнопку меню, я говорю - открой мне мега меню и покажи 
@@ -154,11 +159,11 @@ export default class Header_navbar extends Component {
                                 {sections.map((section, index)=>{
                                   if(section.viewMagaMenu == true && index==0){
                                     return (
-                                      <div key={index} id={"SectionID_"+index} className="SectionsInMegaMenu active" data-nameid={"nameID_"+index} onClick={this.handleClickPageMenu}>{section.name}</div>
+                                      <div key={"section"+section.id} id={"SectionID_"+index} className="SectionsInMegaMenu active" data-nameid={"nameID_"+index} onClick={this.handleClickPageMenu}>{section.name}</div>
                                     );
                                   }else if(section.viewMagaMenu == true){
                                     return (
-                                      <div key={index} id={"SectionID_"+index} className="SectionsInMegaMenu" data-nameid={"nameID_"+index} onClick={this.handleClickPageMenu}>{section.name}</div>
+                                      <div key={"section"+section.id} id={"SectionID_"+index} className="SectionsInMegaMenu" data-nameid={"nameID_"+index} onClick={this.handleClickPageMenu}>{section.name}</div>
                                     );
                                   }
                                 })}
@@ -170,14 +175,14 @@ export default class Header_navbar extends Component {
                                 {sections.map((section, index)=>{
                                   if(section.viewMagaMenu == true && index==0){                        
                                     return (
-                                      <div key={index} id={"nameID_"+index} className="pagesViewMegaMenu">
+                                      <div key={"section"+index} id={"nameID_"+index} className="pagesViewMegaMenu">
                                         {section.pages.map((page, id) => {
                                           return (
-                                          <Link prefetch href={page.url}>
+                                          <Link key={page.id} prefetch href={page.url}>
                                             <a>                                            
                                               <Col className="insertPagesOnMegamenu">
                                                 <img className="img-fluid w-100" src="https://cdn1.savepice.ru/uploads/2019/7/19/608cdd5398ec802e1c5c9349d1880bc2-full.jpg" />
-                                                <p key={id}>{page.name}</p>
+                                                <p>{page.name}</p>
                                               </Col>
                                             </a>
                                           </Link>
@@ -187,14 +192,14 @@ export default class Header_navbar extends Component {
                                     );
                                   }else if(section.viewMagaMenu == true){
                                     return (
-                                      <div key={index} id={"nameID_"+index} className="pagesViewMegaMenu d-none">
+                                      <div key={"section"+index} id={"nameID_"+index} className="pagesViewMegaMenu d-none">
                                         {section.pages.map((page, id) => {
                                           return (
-                                          <Link prefetch href={page.url}>
+                                          <Link key={page.id} prefetch href={page.url}>
                                             <a>                                            
                                               <Col className="insertPagesOnMegamenu">
                                                 <img className="img-fluid w-100" src="https://cdn1.savepice.ru/uploads/2019/7/19/608cdd5398ec802e1c5c9349d1880bc2-full.jpg" />
-                                                <p key={id}>{page.name}</p>
+                                                <p>{page.name}</p>
                                               </Col>
                                             </a>
                                           </Link>

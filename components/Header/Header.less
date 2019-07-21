@@ -114,7 +114,52 @@
         }
     }
   }
-
 .padding-top-withFixedMenu{
     height: 50px;
+}
+.gamburgerMenu{
+  height: 30px;
+}
+.MobilMenu{
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  background: #efefef;
+  transition: 0.3s;
+  z-index: 100;
+}
+.transformMobilMenu{
+  margin-left: -100%;
+}
+.sectionsAndPages{
+  width: 100%;
+  height: 100%;
+  padding-top: 65px;
+  background: #E3E3E3;
+}
+.sectionPagesMobilMenu{
+  top: 65px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  position: absolute;
+  background: #efefef;;
+  transition: 0.3s;
+  border-top: 1px solid #acacac;
+  overflow-y: scroll;
+}
+.clickPointer{
+  span{
+    cursor: pointer;
+    &:hover{
+      color: #00aaee;
+    }
+  }
+}
+.MobilMenuButtonClose {
+  
 }
