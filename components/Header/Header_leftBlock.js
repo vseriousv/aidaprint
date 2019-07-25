@@ -3,7 +3,7 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 export const allContactsQuery = gql`
-query users {
+query queryContacts {
   contacts{
 	title
     type
@@ -25,7 +25,7 @@ export default class Header_leftBlock extends Component {
                     <div className='callMenu callMenuDesktop d-lg-block d-none'>
                      {contacts.map((contact, index) =>(
                         <a key={index} href={"tel:"+contact.context_1}><span><b>{contact.context_1}</b> {contact.context_2}</span><br /></a>
-                     ))}                
+                     ))}
                     </div>
                   </div>
                 )

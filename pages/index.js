@@ -1,6 +1,8 @@
 import App from '../components/App'
-import Header from '../components/Header/Header'
 import Head from 'next/head'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
+import SliderMainPage from '../components/SliderMainPage/SliderMainPage'
 
 import './index.less'
 
@@ -11,8 +13,9 @@ export default () => (
       <title>Aidaprint | Главная страница</title>
     </Head>
     <Header />
-    <div className="hello_Two text-center"><h1>Это главная страница</h1></div> 
-    <div className="hello_one text-center"><h2>На данный момент страница находится в разработке</h2></div>
-    <div className="hello_Two text-center"><h1>Подвал</h1></div> 
+    <SliderMainPage />
+    <div className="hello_Two text-center"><h1>This is The Main Page</h1></div>
+    <div className="hello_one text-center"><h2>At the moment the page is under construction!</h2></div>
+    <Footer />
   </App>
 )
