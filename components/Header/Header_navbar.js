@@ -49,7 +49,7 @@ export default class Header_navbar extends Component {
         MegaMenu1.classList.add("MegaMenu-top-two");
         MegaMenu4.classList.remove("MegaMenu-top-one");
         MegaMenu4.classList.add("MegaMenu-top-two");
-        fixedMenuBar.classList.add("fixed-top");          
+        fixedMenuBar.classList.add("fixed-top");
     }else{
         MegaMenu1.classList.add("MegaMenu-top-one");
         MegaMenu1.classList.remove("MegaMenu-top-two");
@@ -78,7 +78,7 @@ export default class Header_navbar extends Component {
       MegaMenuJ.classList.add("d-none")
     }
     var idElement = document.getElementById(event.target.id)
-    if(idElement != null){      
+    if(idElement != null){
       for (var i=1; i< statusActive.length+1;i++){
         var elementMegaMenu = document.getElementById("navbarItemID"+i)
         elementMegaMenu.classList.remove("active")
@@ -100,7 +100,7 @@ export default class Header_navbar extends Component {
     targetElement.classList.remove('d-none');
   }
 
-  render(){         
+  render(){
       return(
       <Query query={componentNavbarQuery}>
             {({loading, error, data: { componentNavbar }, fetchMore }) => {
@@ -115,34 +115,34 @@ export default class Header_navbar extends Component {
                             return(
                               <li key={item.id} className="nav-item">
                                 <Link prefetch href={item.link}>
-                                  <a 
-                                  id={"navbarItemID"+item.id} 
-                                  className="nav-link statusActive" 
+                                  <a
+                                  id={"navbarItemID"+item.id}
+                                  className="nav-link statusActive"
                                   data-megamenu={"megaMenu"+item.id}
                                   onClick={this.handleClick}>{item.name}</a>
-                                </Link>   
+                                </Link>
                               </li>
                             )}else {
                               return(
                               <li key={item.id} className="nav-item">
                                 <Link prefetch href={item.link}>
-                                  <a 
-                                  id={"navbarItemID"+item.id} 
-                                  className="nav-link statusActive" 
+                                  <a
+                                  id={"navbarItemID"+item.id}
+                                  className="nav-link statusActive"
                                   data-megamenu={"megaMenu"+item.id}
                                   >{item.name}</a>
                                 </Link>
-                              </li>                              
+                              </li>
                               )}
                         })}
                     </ul>
                     <div className="col-6 d-md-none my-auto d-flex justify-content-start">
                       <Header_MobilMenu />
-                    </div>                
+                    </div>
                     <div className="col-6 d-md-none my-auto d-flex justify-content-end">S</div>
                   </Row>
                   {/*Отображение мегаМеню
-                    Кликая на кнопку меню, я говорю - открой мне мега меню и покажи 
+                    Кликая на кнопку меню, я говорю - открой мне мега меню и покажи
                     весь список страниц, которые относятся к выбранной категории
                   */}
                   <div id="windowCloseClick" className="windowCloseClick d-none" onClick={this.handleClickWindowClose}></div>
@@ -152,7 +152,7 @@ export default class Header_navbar extends Component {
                         if (loading) return <div>Loading</div>
                         return(
                           <div>
-                            <div id="megaMenu1" className="container-fluid MegaMenu MegaMenu-top-one d-none">                              
+                            <div id="megaMenu1" className="container-fluid MegaMenu MegaMenu-top-one d-none">
                               <Row className="megaMenuRow">
                                 <Container>
                                   <Row>
@@ -173,15 +173,15 @@ export default class Header_navbar extends Component {
                               <Container>
                               <Row>
                                 {sections.map((section, index)=>{
-                                  if(section.viewMagaMenu == true && index==0){                        
+                                  if(section.viewMagaMenu == true && index==0){
                                     return (
                                       <div key={"section"+index} id={"nameID_"+index} className="pagesViewMegaMenu">
                                         {section.pages.map((page, id) => {
                                           return (
                                           <Link key={page.id} prefetch href={page.url}>
-                                            <a>                                            
+                                            <a>
                                               <Col className="insertPagesOnMegamenu">
-                                                <img className="img-fluid w-100" src="https://cdn1.savepice.ru/uploads/2019/7/19/608cdd5398ec802e1c5c9349d1880bc2-full.jpg" />
+                                                <img className="img-fluid w-100" src="/static/images/OurProduction/image1.jpg" />
                                                 <p>{page.name}</p>
                                               </Col>
                                             </a>
@@ -196,9 +196,9 @@ export default class Header_navbar extends Component {
                                         {section.pages.map((page, id) => {
                                           return (
                                           <Link key={page.id} prefetch href={page.url}>
-                                            <a>                                            
+                                            <a>
                                               <Col className="insertPagesOnMegamenu">
-                                                <img className="img-fluid w-100" src="https://cdn1.savepice.ru/uploads/2019/7/19/608cdd5398ec802e1c5c9349d1880bc2-full.jpg" />
+                                                <img className="img-fluid w-100" src="/static/images/OurProduction/image1.jpg" />
                                                 <p>{page.name}</p>
                                               </Col>
                                             </a>
@@ -223,10 +223,10 @@ export default class Header_navbar extends Component {
                         <h1>Технологии</h1>
                       </div>
                     </div>
-                  </div>                
+                  </div>
               )
             }}
-      </Query> 
+      </Query>
       );
   }
 }

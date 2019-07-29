@@ -17,7 +17,7 @@ export default class Header_leftBlock extends Component {
     render(){
         return(
         <Query query={allContactsQuery}>
-             {({loading, error, data: { contacts }, fetchMore }) => {
+             {({loading, error, data: { contacts } }) => {
                 if (error) return <ErrorMessage message='Error loading posts.' />
                 if (loading) return <div>Loading</div>
                 return (

@@ -1,0 +1,259 @@
+@import '../../styles/_global.less';
+
+.OurProduction{
+  min-height: 450px;
+  width: 100%;
+  padding-bottom: 25px;
+  @media (min-width: 576px)
+  {
+    min-height: 400px;
+  }
+  @media (min-width: 992px)
+  {
+    min-height: 100vh;
+  }
+}
+.BlockChooseProductComponent{
+    background:white;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.rowCartProduct{
+    min-height: 280px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+    grid-gap: 5px;
+    @media (min-width: 992px)
+    {
+        min-height: 170px;
+        grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+        grid-gap: 5px;
+    }
+    @media (min-width: 1200px)
+    {
+        min-height: 300px;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        grid-gap: 5px;
+    }
+}
+
+.aidaFontProduct{
+    font-family: aidaprint;
+    color: white;
+    font-size: 50px;
+}
+@font-face {
+    font-family: aidaprint;
+    src: url(/static/fonts/Aidaprintsign.ttf);
+}
+.cartProduct{
+    position: relative;
+}
+.cartProduct:hover{
+    filter: saturate(1.8)
+}
+/*row 1*/
+.cartProduct1{background-color: #f2e2c2;}
+.cartProduct2{background-color: #f2f2c2;}
+.cartProduct3{background-color: #e2f2c2;}
+.cartProduct4{background-color: #c2f2c2;}
+.cartProduct5{background-color: #c2f2e2;}
+/*row 2*/
+.cartProduct6{background-color: #f2c2d2;}
+.cartProduct7{background-color: #f2c2f2;}
+.cartProduct8{background-color: #d2c2f2;}
+.cartProduct9{background-color: #c2d2f2;}
+.cartProduct10{background-color: #c2f2f2;}
+
+.cartProduct{
+    cursor: pointer;
+}
+.cartProduct:hover .cartText{
+    bottom: 10px;
+    transition: 0.5s;
+}
+.cartProduct:not(:hover) .cartText{
+    bottom: 40px;
+    transition: 0.5s;
+    @media (min-width: 992px)
+    {
+      bottom: 25px;
+    }
+    @media (min-width: 1200px)
+    {
+      bottom: 40px;
+    }
+}
+.heightNavigationCart{
+  height: 50px;
+  img{
+    width: 50px;
+  }
+}
+.textNavigationCart{
+  font-size: 10px;
+  @media (min-width: 576px)
+  {
+    font-size: 14px;
+  }
+}
+.cartProduct:hover .cartIcon{
+    opacity: 1;
+    transition: 0.5s;
+}
+.cartProduct:not(:hover) .cartIcon{
+    opacity: 0;
+    transition: 0.5s;
+}
+.cartBGR{ width: 100%; height: 100%; position: absolute; top:0; left: 0; z-index: 1000; display: none; }
+.cartProduct:hover .cartBGR{
+    display: block;
+}
+.cartProductActive .cartText{
+    bottom: 10px !important;
+}
+.cartProductActive .cartIcon{
+    opacity: 1 !important;
+}
+.cartText h3{
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    margin: auto 0;
+}
+@media (min-width: 1200px)
+{
+    .cartText h3{ height: 40px;}
+    .aidaText{ font-size: 14px !important;}
+    .aidaFontProduct{    font-size: 100px;}
+}
+.paddingMenu{
+    height: 49px;
+    width: 100%;
+    display: flex;
+}
+.hrLine{
+    border: 1px solid #00aeef;
+}
+.BTN-cart{
+    position: relative;
+    width: 145px;
+    height: 40px;
+    margin: 10px auto 0;
+    cursor: pointer;
+}
+.BTN-cart h6{
+    border: 2px solid #8c8c8c;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    vertical-align: middle;
+    overflow: auto;
+    padding: 10px 0 0 0;
+    z-index: 2;
+    text-align: center;
+}
+.BGR-BTN-cart{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+}
+.BGR-BTN-cart1{  background: #f2c2f2;}
+.BGR-BTN-cart2{  background: #c2d2f2;}
+.BGR-BTN-cart3{  background: #c2f2c2;}
+.BTN-cart:not(:hover) .BGR-BTN-cart {
+    bottom: -5px;
+    right: -5px;
+    transition: 0.3s;
+}
+.BTN-cart:hover .BGR-BTN-cart {
+    bottom: 0px;
+    right: 0px;
+    transition: 0.3s;
+}
+.renderTransition{
+    transition: 0.3s;
+}
+
+.aidaText{    font-size: 10px !important;}
+/*Адаптив для карточек тут -------------------------------------------*/
+@media (min-width: 576px)
+{
+    .RenderProductionCartID{ min-height: 400px; }
+}
+@media (min-width: 1200px)
+{
+    .cartText h3{ height: 40px;}
+    .rowCartProduct{ height: 150px;}
+    .aidaText{ font-size: 14px !important;}
+    .aidaFontProduct{    font-size: 100px;}
+    .RenderProductionCartID{ min-height: 400px; }
+}
+
+.BlockAdvantageComponent{
+    min-height: 340px;
+    background: #efe686;
+}
+@media (min-width: 1200px)
+{
+    .BlockAdvantageComponent{
+        min-height: 540px;
+    }
+}
+.imagesAdvantage{
+    margin-top: -35px;
+    margin-left: -20px;
+    width: 110%;
+    height: auto;
+}
+.specialFontAdvan{
+    font-size: 54px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 2px 2px 10px grey;
+}
+.specialFontAdvanP{
+    font-size: 12px;
+    padding-top: 10px;
+    color: black;
+    font-weight: 500;
+}
+@media (min-width: 992px){
+    .specialFontAdvan{
+        font-size: 48px;
+    }
+    .specialFontAdvanP{
+        font-size: 12px;
+    }
+}
+@media (min-width: 992px){
+    .specialFontAdvan{
+        font-size: 48px;
+    }
+    .specialFontAdvanP{
+        font-size: 12px;
+    }
+}
+@media (min-width: 1200px){
+    .specialFontAdvan{
+        font-size: 54px;
+    }
+    .specialFontAdvanP{
+        font-size: 12px;
+    }
+}
+.imgCartProduct{
+    width: 100%;
+    max-width: 370px;
+    margin: 0 auto;
+    text-align: center;
+}
