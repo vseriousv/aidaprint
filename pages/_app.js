@@ -2,22 +2,25 @@ import App, { Container } from 'next/app'
 import React from 'react'
 import withApolloClient from '../lib/with-apollo-client'
 import { ApolloProvider } from 'react-apollo'
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
+import { Provider } from 'react-redux'
+import withReduxStore from '../lib/with-redux-store'
+import withRedux    from 'next-redux-wrapper';
 
 class MyApp extends App {
   render () {
-    const { Component, pageProps, apolloClient } = this.props
+    const { Component, pageProps, reduxStore, apolloClient } = this.props
     return (
-      <Container>
-        <ApolloProvider client={apolloClient}>
-          <Header />
-          <Component {...pageProps} />
-          <Footer />
-        </ApolloProvider>
-      </Container>
+      <ApolloProvider client={apolloClient}>
+        <Container>
+          <Provider store={reduxStore}>
+
+            <Component {...pageProps} />
+
+          </Provider>
+        </Container>
+      </ApolloProvider>
     )
   }
 }
 
-export default withApolloClient(MyApp)
+export default withApolloClient(withReduxStore(MyApp))

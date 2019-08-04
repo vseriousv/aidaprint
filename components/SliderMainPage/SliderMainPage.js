@@ -24,13 +24,13 @@ class SliderMainPage extends Component{
   render () {
     return (
       <Query query={mpslider}>
-      {({loading, error, data: { mpslides }}) => {
-        if (error) return <ErrorMessage message='Error loading posts.' />
+      {({loading, error, data}) => {
+        if (error) return `Error! ${error.message}`;
         if (loading) return <div>Loading</div>
         return (
           <div className="container-fluid sliderHomePageComponent">
             <Carousel indicators={false}>
-              {mpslides.map((slide,index)=>{
+              {data.mpslides.map((slide,index)=>{
                 return(
                   <Carousel.Item key={index}>
                     <div className="container-fluid">

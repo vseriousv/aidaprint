@@ -32,9 +32,9 @@ export default class AdvantagesBlock extends Component{
     return(
 
       <Query query={advantagesQuery} >
-       {({loading, error, data: { componentAdvantage }, fetchMore }) => {
-          if (error) return <ErrorMessage message='Error loading posts.' />
-          if (loading) return <div>Loading</div>
+      {({loading, error, data}) => {
+         if (error) return `Error! ${error.message}`;
+         if (loading) return <div>Loading</div>
           return (
       <div>
         <div className="container-fluid BlockAdvantageComponent">

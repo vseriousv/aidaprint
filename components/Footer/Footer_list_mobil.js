@@ -26,13 +26,13 @@ export default class Footer_list_mobil extends Component {
       return(
         <div className="container-fluid row-listSectionAndPages d-md-none">
           <Query query={sectionsPagesQuery}>
-          {({loading, error, data: { sections }, fetchMore }) => {
-              if (error) return <ErrorMessage message='Error loading posts.' />
-              if (loading) return <div>Loading</div>
+          {({loading, error, data}) => {
+						if (error) return `Error! ${error.message}`;
+            if (loading) return <div>Loading</div>
               return (
 								<Container className="">
 	                <ul className="nav flex-column text-center pt-3 pb-3">
-	                  {sections.map((section, index) => {
+	                  {data.sections.map((section, index) => {
 											if(section.viewMagaMenu == false){
 		                    return(
 		                      <li className="nav-item pb-2 text-center" key={section.id}><span>{section.name}</span></li>

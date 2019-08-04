@@ -54,15 +54,15 @@ export default class OurProduction extends Component{
   render() {
     return(
       <Query query={opsectionQuery}>
-       {({loading, error, data: { opsection }, fetchMore }) => {
-          if (error) return <ErrorMessage message='Error loading posts.' />
+       {({loading, error, data}) => {
+          if (error) return `Error! ${error.message}`;
           if (loading) return <div>Loading</div>
           return (
             <div className="container-fluid BlockChooseProductComponent d-none d-lg-block desktopView">
               {/*Блок с карточками выбора продукции открыт*/}
               <div className="container my-5">
                   <div className="rowCartProduct my-2">
-                  {opsection.map(i => {
+                  {data.opsection.map(i => {
                       return (
                             <div key={i.section_id} id={"cartProduct"+i.section_id+"block"} className={"h-100 cartProduct cartProduct"+i.section_id+" "+i.classNameActive}>
                                 <div className="cartIcon position-absolute w-100"><h1 className="aidaFontProduct text-center w-100">{i.text}</h1></div>
@@ -78,7 +78,7 @@ export default class OurProduction extends Component{
     {/*Блок под карточками в котором отображается то какая карточка выбрана*/}
     <div className="container RenderProductionCartID mb-4">
         <div className="w-100 position-relative">
-    {opsection.map(i => {
+    {data.opsection.map(i => {
                 return (
                   <div key={i.section_id} id={"screencartProduct"+i.section_id} className={"w-100 renderTransition screencartProductElement position-absolute "+i.className}>
     <div className="container">
@@ -91,9 +91,9 @@ export default class OurProduction extends Component{
         </div>
 {/* отображение самой карточки */}
         <div className="row mt-3">
-        {i.valueCart.map(item => {
+        {i.valueCart.map((item, index) => {
           return(
-            <div className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 px-1">
+            <div key={index} className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 px-1">
                <img src={"/static/images/OurProduction/"+item.img+".jpg"} className="img-fluid" />
                <h6 className="text-uppercase text-center font-weight-bold my-3 small">{item.hCart} <small>{item.pText}₽</small></h6>
                 <div className="BTN-cart">

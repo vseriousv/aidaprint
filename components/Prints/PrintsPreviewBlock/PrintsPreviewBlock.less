@@ -1,0 +1,203 @@
+@import '../../../styles/_global.less';
+
+.BlockSliderBussinessCard{
+    background: #00aeef;
+}
+.font-color-product{
+    color: #3a3a3c;
+    line-height: 48px;
+}
+.aidaFontProductOn{
+    font-family: aidaprint;
+}
+.font-sizeProductOn{
+    font-size: 70px;
+}
+.margin-left-product{
+    margin-left: 10px;
+}
+.HeadSlide h1{
+    font-size: 18px;
+    color: white;
+    text-transform: uppercase;
+}
+.redText span{
+    color: #fd3468;
+    text-transform: uppercase;
+}
+.subHeadSlide h1{
+    font-size: 24px;
+    color: white;
+}
+.subHeadSlide h4{
+    font-size: 16px;
+    color: white;
+}
+
+.BTNHeadSlide{
+    color: white;
+    width: 250px;
+    height: 50px;
+    text-align: center;
+    margin: 20px auto 10px;
+    position: relative;
+    cursor: pointer;
+}
+.BTNHeadSlide h1{
+    border: 3px solid white;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    font-size: 15px;
+    font-weight: bold;
+    margin: auto;
+    left: 0; right: 0; top: 0; bottom: 0;
+    vertical-align: middle;
+    overflow: auto;
+    padding: 14px 0 0 0;
+    z-index: 2;
+    text-transform: uppercase;
+}
+.BTNBGRSLide{
+    width: 100%;
+    height: 100%;
+    background: #fd3468;
+    position: absolute;
+    z-index: 1;
+}
+.BTNHeadSlide:not(:hover) .BTNBGRSLide{
+    bottom: -7px;
+    right: -7px;
+    transition: 0.3s;
+}
+.BTNHeadSlide:hover .BTNBGRSLide{
+    bottom: 0;
+    right: 0;
+    transition: 0.3s;
+}
+.imageSlide1 img{
+    height: auto;
+    width: 400px;
+    margin: 0 auto;
+}
+@media (max-width: 370px)
+{
+    .HeadSlide h1{
+        font-size: 12px;
+    }
+}
+@media (max-width: 576px)
+{
+    .sliderContent{
+        min-height: 495px;
+    }
+    .imageSlide1 img{
+        height: 100%;
+        max-height: 250px;
+        width: auto;
+        margin: 0 auto;
+    }
+    .BTNHeadSlide{
+        width: 170px;
+        height: 40px;
+        margin: 20px auto 0;
+    }
+    .BTNHeadSlide h1{
+        padding-top: 10px;
+        font-size: 14px;
+    }
+}
+@media (min-width: 576px)
+{
+    .HeadSlide h1{
+        font-size: 20px;
+    }
+}
+@media (min-width: 768px)
+{
+    .HeadSlide h1{
+        font-size: 16px;
+    }
+    .subHeadSlide h1{
+        font-size: 28px;
+    }
+    .BTNHeadSlide{
+        width: 170px;
+        height: 40px;
+        margin: 20px 0 0;
+    }
+    .BTNHeadSlide h1{
+        padding-top: 10px;
+        font-size: 14px;
+    }
+}
+@media (min-width: 992px)
+{
+    .HeadSlide h1{
+        font-size: 24px;
+    }
+    .subHeadSlide h1{
+        font-size: 32px;
+    }
+    .BTNHeadSlide{
+        width: 200px;
+        height: 45px;
+        margin: 20px 0 0;
+    }
+    .BTNHeadSlide h1{
+        padding-top: 10px;
+        font-size: 14px;
+    }
+}
+@media (min-width: 1200px)
+{
+    .HeadSlide h1{
+        font-size: 31px;
+    }
+    .subHeadSlide h1{
+        font-size: 42px;
+    }
+    .BTNHeadSlide{
+        width: 200px;
+        height: 45px;
+        margin: 20px 0 0;
+    }
+    .BTNHeadSlide h1{
+        padding-top: 10px;
+        font-size: 14px;
+    }
+}
+@media (min-width: 1400px)
+{
+    .HeadSlide h1{
+        font-size: 40px;
+    }
+    .subHeadSlide h1{
+        font-size: 48px;
+    }
+    .BTNHeadSlide{
+        width: 285px;
+        height: 60px;
+        margin: 50px 0 0;
+    }
+    .BTNHeadSlide h1{
+        padding-top: 18px;
+        font-size: 18px;
+    }
+    .imageSlide1 img{
+        height: 600px;
+        width: auto;
+    }
+}
+
+.BTNslide{
+    width: 35px !important;
+}
+.marginSliders{
+    margin-bottom: 50px;
+}
+.classBGRBluurOpacity{
+    background-color: rgba(0, 174, 239, 0.7);
+    padding-bottom: 20px;
+    padding-top: 70px;
+}

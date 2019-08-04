@@ -12,13 +12,13 @@ import './Header.less';
 
 
 const Header = ({ router: { pathname } }) => (
-  
+
   <header>
     <Container className="header-Bar">
       <Row className="py-3">
-        <Col className="my-auto" md={4} sm={1}><Header_leftBlock /></Col> 
-        <Col className="my-auto" md={4} sm={10}><Header_centerBlock /></Col> 
-        <Col className="my-auto" md={4} sm={1}><Header_rightBlock /></Col>      
+        <Col className="my-auto" md={4} sm={1}><Header_leftBlock /></Col>
+        <Col className="my-auto" md={4} sm={10}><Header_centerBlock /></Col>
+        <Col className="my-auto" md={4} sm={1}><Header_rightBlock /></Col>
       </Row>
     </Container>
     <Header_navbar />

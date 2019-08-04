@@ -1,0 +1,244 @@
+@import '../../../styles/_global.less';
+
+.BlockThreeBussinessCard{
+    background: linear-gradient(to top left, #e3db7f 50%, #efe686 50% );
+    min-height: 875px;
+    margin-bottom: 50px;
+}
+.bic-toBusCardPage img{width: 100%;}
+.bic-toBusCardPage_1{background: linear-gradient(to top left, #96cde1 50%, #f57ad6 50% );}
+.bic-toBusCardPage_2{background: linear-gradient(to top,#9dbaf2 50%, #98add9 50%  );}
+
+.bic-toBusCardPage_3{background: linear-gradient(155deg,  #e0d9cf 50%, #e2d2b9 50% );}
+.bic-toBusCardPage_4{background: linear-gradient(15deg,#f49ac1 50%, #e08db1 50%  );}
+
+.bic-toBusCardPage_5{background: linear-gradient(195deg, #e2d9cf 50%, #e5e5e5 50% );}
+.bic-toBusCardPage_6{background: linear-gradient(155deg,#f70021 40%, #f06363 40%  );}
+
+.bic-toBusCardPage_7{background: linear-gradient(to bottom,#96cde1 60%, #ffa9a6 60%  );}
+.bic-toBusCardPage_8{background: linear-gradient(175deg,#de8b9f 50%, #e09fb9 50%  );}
+
+.bic-toBusCardPage_9{ background: linear-gradient(165deg,  #e2d2b9 50%, #d5c0a0 50% );}
+.bic-toBusCardPage_10{background: linear-gradient(160deg,#eac79e 50%, #8dc2d6 50%  );}
+
+.tiragTag {
+    float: left;
+    margin-right: 10px;
+    margin-top: 20px;
+    h5{
+      font-weight: bold;
+      text-align: center;
+      position: relative;
+      .helpQuestBtn{
+        position: absolute;
+        width: 20px;
+        top: 0;
+        right: 15px;
+        cursor: pointer;
+        &:not(:hover) .helpQuestBlock{
+          display: none;
+        }
+        &:hover .helpQuestBlock{
+          display: block;
+        }
+        .helpQuestBlock{
+          position: absolute;
+          top: -100%;
+          left: 100%;
+          width: 250px;
+          font-size: 12px;
+          border: 1px solid #d5c0a0;
+          background: white;
+          border-radius: 15px;
+          padding: 5px;
+          display: none;
+        }
+        img{
+          height: 20px;
+          margin-top: -20px;
+        }
+      }
+    }
+}
+
+.tiragTag input{
+    height: 55px;
+    font-size: 28px;
+    color: #464646;
+    font-weight: bold;
+    border: 2px solid black;
+}
+.tiragTagEnter{
+  border-right: 0px!important;
+  border-left: 0px!important;
+  text-align: right;
+  width: 80px;
+  padding: 0 10px;
+}
+.tiragTagLeft{
+  border-right: 0px!important;
+  text-align: center;
+  width: 50px;
+  padding: 0 10px 0 0;
+}
+.tiragTagRight{
+  border-left: 0px!important;
+  text-align: center;
+  width: 50px;
+  padding: 0 10px;
+}
+
+
+.tiragTagLabel{
+  padding: 0 10px;
+  text-align: left;
+  width: 120px;
+  border-left: 0px!important;
+}
+
+.tiragTagLeftColor{
+  border-right: 0px!important;
+  text-align: center;
+  width: 50px;
+  padding: 0 10px;
+}
+.tiragTagEnterColor{
+  padding: 0 10px;
+  text-align: center;
+  width: 120px;
+  border-left: 0px!important;
+  border-right: 0px!important;
+}
+.tiragTagRightColor{
+  border-left: 0px!important;
+  text-align: center;
+  width: 50px;
+  padding: 0 10px;
+}
+.rowOneCalculator, .rowTwoCalculator{
+    width: 100%;
+    float: left;
+    margin: 15px 0;
+}
+.chooseCart{
+    min-height: 150px;
+    border: 4px solid white;
+    margin: 10px 5px;
+    text-align: center;
+}
+.chooseCart small{
+    font-weight: bold;
+    font-size: 12px;
+}
+.chooseCartID1{
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
+    line-height: 150px;
+    margin-top: 10px;
+}
+
+.chooseCartID2{
+    line-height: 170px;
+}
+
+.chooseCartID3{
+    margin-top: 20px!important;
+    margin-bottom: 20px!important;
+    border-radius: 10px;
+    line-height: 150px;
+}
+.chooseCartID4{
+    border-radius: 10px;
+    line-height: 170px;
+}
+.activeChooseCart{
+    background: white;
+}
+.chooseCart span{
+    display: none;
+}
+.activeChooseCart span{
+    display: block;
+    color: red;
+    position: absolute;
+    bottom: -40px;
+    right: 5px;
+    font-size: 72px;
+}
+.fullGround{
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    cursor: pointer;
+}
+
+.chooseMaterial{
+    line-height: 150px;
+    border: 4px solid white;
+    margin: 10px 5px;
+    text-align: center;
+}
+.chooseMaterial small{
+    font-weight: bold;
+    font-size: 11px;
+}
+.activeChooseMaterial{
+   /* border: 3px solid lightgreen;*/
+}
+.chooseMaterial span{
+    display: none;
+}
+.activeChooseMaterial span{
+    display: block!important;
+    color: red;
+    position: absolute;
+    bottom: -40px;
+    right: 5px;
+    font-size: 72px;
+}
+.chooseMaterialID1{
+    background: lightgreen;
+}
+
+.chooseMaterialID2{
+    background: lightslategray;
+}
+
+.chooseMaterialID3{
+    background: lightcoral;
+}
+.chooseMaterialID4{
+    background: lightseagreen;
+}
+.pricessParent{
+    width: 100%;
+    font-size: 32px;
+}
+.priceecSumm{
+    color: red;
+    font-size: 54px;
+    float: left;
+    margin-top: -5px;
+    margin-left: 15px;
+    font-weight: bold;
+}
+.button_peyload{
+  line-height: 50px;
+  border: 4px solid white;
+  margin: 0;
+  text-align: center;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  font-size: 16px;
+  cursor: pointer;
+  &:not(:hover){
+    background: none;
+    transition: 0.3s;
+  }
+  &:hover{
+    background: white;
+    transition: 0.3s;
+  }
+}

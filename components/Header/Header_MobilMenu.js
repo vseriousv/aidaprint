@@ -61,38 +61,38 @@ export default class Header_MobilMenu extends Component {
                     </div>
                     <div className="sectionsAndPages">
                     <Query query={componentNavbarQuery}>
-                        {({loading, error, data: { componentNavbar }, fetchMore }) => {
-                        if (error) return <ErrorMessage message='Error loading posts.' />
-                        if (loading) return <div>Loading</div>
+                    {({loading, error, data }) => {
+                       if (error) return `Error! ${error.message}`;
+                       if (loading) return <div>Loading</div>
                         return (
                             <ul className="nav flex-column m-4">
-                                {componentNavbar[0].menu_items.map((item, index)=>{
+                                {data.componentNavbar[0].menu_items.map((item, index)=>{
                                     if(item.link == "#"){
                                         return (
-                                          <div key={"item_mobil"+item.id}>                                           
-                                            <a id="ourProductionIDLink" 
-                                                data-value="sectionPagesMobilMenu" 
-                                                className="nav-link m-0 p-0" 
+                                          <div key={"item_mobil"+item.id}>
+                                            <a id="ourProductionIDLink"
+                                                data-value="sectionPagesMobilMenu"
+                                                className="nav-link m-0 p-0"
                                                 href="#"
                                                 onClick={(e) =>this.handleClick(e)}>
                                                 <li id="ourProductionIDLinkLi" data-value="sectionPagesMobilMenu" className="nav-item">{item.name}</li>
                                             </a>
                                             <div id="sectionPagesMobilMenu" className="sectionPagesMobilMenu transformMobilMenu">
                                                 <div className="MobilMenuButtonClose w-100 p-3">
-                                                    <a id="ourProductionIDCloseLink" 
-                                                        data-value="sectionPagesMobilMenu" 
+                                                    <a id="ourProductionIDCloseLink"
+                                                        data-value="sectionPagesMobilMenu"
                                                         href='#'
-                                                        className="d-flex justify-content-end" 
+                                                        className="d-flex justify-content-end"
                                                         onClick={(e) =>this.handleClick(e)}>
                                                         <img id="ourProductionIDCloseLink" data-value="sectionPagesMobilMenu" className="fluid gamburgerMenu" src="/static/images/backPointer.png" />
                                                     </a>
                                                     <Query query={sectionsPagesQuery}>
-                                                    {({data: { sections }}) => {
-                                                        if (error) return <ErrorMessage message='Error loading posts.' />
-                                                        if (loading) return <div>Loading</div>
+                                                    {({loading, error, data }) => {
+                                                       if (error) return `Error! ${error.message}`;
+                                                       if (loading) return <div>Loading</div>
                                                         return(
                                                             <ul className="nav flex-column ml-4 mr-4 mt-1">
-                                                                {sections.map((section, index)=>{
+                                                                {data.sections.map((section, index)=>{
                                                                     if(section.viewMagaMenu == true){
                                                                         return (
                                                                             <li className="clickPointer"   key={"section"+section.id}>
@@ -124,7 +124,7 @@ export default class Header_MobilMenu extends Component {
                                         );
                                     }else{
                                         return (
-                                          <Link key={"item_mobil"+item.id} prefetch href={item.link}> 
+                                          <Link key={"item_mobil"+item.id} prefetch href={item.link}>
                                             <a className="nav-link m-0 p-0">
                                                 <li className="nav-item">{item.name}</li>
                                             </a>

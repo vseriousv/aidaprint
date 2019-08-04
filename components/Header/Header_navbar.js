@@ -42,22 +42,23 @@ export default class Header_navbar extends Component {
   }
   handleScroll(){
     var fixedMenuBar = document.getElementById("fixedMenuBar");
-    var MegaMenu1 = document.getElementById("megaMenu1");
     var MegaMenu4 = document.getElementById("megaMenu4");
-    if(window.pageYOffset >= "80"){
-        MegaMenu1.classList.remove("MegaMenu-top-one");
-        MegaMenu1.classList.add("MegaMenu-top-two");
-        MegaMenu4.classList.remove("MegaMenu-top-one");
-        MegaMenu4.classList.add("MegaMenu-top-two");
-        fixedMenuBar.classList.add("fixed-top");
-    }else{
+    var MegaMenu1 = document.getElementById("megaMenu1");
+    if(window.pageYOffset <= "80"){
+        fixedMenuBar.classList.remove("fixed-top");
         MegaMenu1.classList.add("MegaMenu-top-one");
         MegaMenu1.classList.remove("MegaMenu-top-two");
         MegaMenu4.classList.add("MegaMenu-top-one");
         MegaMenu4.classList.remove("MegaMenu-top-two");
-        fixedMenuBar.classList.remove("fixed-top");
+    }else{
+        fixedMenuBar.classList.add("fixed-top");
+        MegaMenu1.classList.remove("MegaMenu-top-one");
+        MegaMenu1.classList.add("MegaMenu-top-two");
+        MegaMenu4.classList.remove("MegaMenu-top-one");
+        MegaMenu4.classList.add("MegaMenu-top-two");
     }
   }
+
   handleClick(event){
     event.preventDefault()
     var idElement = document.getElementById(event.target.id)
@@ -103,18 +104,18 @@ export default class Header_navbar extends Component {
   render(){
       return(
       <Query query={componentNavbarQuery}>
-            {({loading, error, data: { componentNavbar }, fetchMore }) => {
-              if (error) return <ErrorMessage message='Error loading posts.' />
-              if (loading) return <div>Loading</div>
+          {({loading, error, data }) => {
+            if (error) return `Error! ${error.message}`;
+            if (loading) return <div>Loading</div>
               return (
                 <div id="fixedMenuBar" className="container-fluid ">
                   <Row className="navbar-color-grey d-flex justify-content-between">
                     <ul className="nav d-none d-md-flex">
-                        {componentNavbar[0].menu_items.map((item, index)=>{
+                        {data.componentNavbar[0].menu_items.map((item, index)=>{
                             if(item.link == "#"){
                             return(
                               <li key={item.id} className="nav-item">
-                                <Link prefetch href={item.link}>
+                                <Link href={item.link}>
                                   <a
                                   id={"navbarItemID"+item.id}
                                   className="nav-link statusActive"
@@ -125,7 +126,7 @@ export default class Header_navbar extends Component {
                             )}else {
                               return(
                               <li key={item.id} className="nav-item">
-                                <Link prefetch href={item.link}>
+                                <Link href={item.link}>
                                   <a
                                   id={"navbarItemID"+item.id}
                                   className="nav-link statusActive"
@@ -146,17 +147,17 @@ export default class Header_navbar extends Component {
                     весь список страниц, которые относятся к выбранной категории
                   */}
                   <div id="windowCloseClick" className="windowCloseClick d-none" onClick={this.handleClickWindowClose}></div>
+                    <div id="megaMenu1" className="container-fluid MegaMenu MegaMenu-top-one d-none">
                     <Query query={sectionsPagesQuery}>
-                      {({data: { sections }}) => {
-                        if (error) return <ErrorMessage message='Error loading posts.' />
-                        if (loading) return <div>Loading</div>
+                    {({loading, error, data }) => {
+                       if (error) return `Error! ${error.message}`;
+                       if (loading) return <div>Loading</div>
                         return(
-                          <div>
-                            <div id="megaMenu1" className="container-fluid MegaMenu MegaMenu-top-one d-none">
+                          <>
                               <Row className="megaMenuRow">
                                 <Container>
                                   <Row>
-                                {sections.map((section, index)=>{
+                                {data.sections.map((section, index)=>{
                                   if(section.viewMagaMenu == true && index==0){
                                     return (
                                       <div key={"section"+section.id} id={"SectionID_"+index} className="SectionsInMegaMenu active" data-nameid={"nameID_"+index} onClick={this.handleClickPageMenu}>{section.name}</div>
@@ -172,13 +173,13 @@ export default class Header_navbar extends Component {
                               </Row>
                               <Container>
                               <Row>
-                                {sections.map((section, index)=>{
+                                {data.sections.map((section, index)=>{
                                   if(section.viewMagaMenu == true && index==0){
                                     return (
                                       <div key={"section"+index} id={"nameID_"+index} className="pagesViewMegaMenu">
                                         {section.pages.map((page, id) => {
                                           return (
-                                          <Link key={page.id} prefetch href={page.url}>
+                                          <Link key={page.id} href={page.url}>
                                             <a>
                                               <Col className="insertPagesOnMegamenu">
                                                 <img className="img-fluid w-100" src="/static/images/OurProduction/image1.jpg" />
@@ -195,7 +196,7 @@ export default class Header_navbar extends Component {
                                       <div key={"section"+index} id={"nameID_"+index} className="pagesViewMegaMenu d-none">
                                         {section.pages.map((page, id) => {
                                           return (
-                                          <Link key={page.id} prefetch href={page.url}>
+                                          <Link key={page.id} href={page.url}>
                                             <a>
                                               <Col className="insertPagesOnMegamenu">
                                                 <img className="img-fluid w-100" src="/static/images/OurProduction/image1.jpg" />
@@ -211,11 +212,12 @@ export default class Header_navbar extends Component {
                                 })}
                               </Row>
                             </Container>
-                            </div>
-                          </div>
+                            </>
+
                         )
                       }}
                     </Query>
+                    </div>
                     <div><div id="megaMenu2" className="container-fluid MegaMenu MegaMenu-top-one d-none"></div></div>
                     <div> <div id="megaMenu3" className="container-fluid MegaMenu MegaMenu-top-one d-none"></div></div>
                     <div>
