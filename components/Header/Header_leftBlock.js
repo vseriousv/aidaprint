@@ -3,12 +3,13 @@ import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
 export const allContactsQuery = gql`
-query queryContacts {
-  contacts{
-	title
+query contactsphone{
+	contactsphone( type: "phone_mobil"){
+    id
+    title
     type
     context_1
-  	context_2
+    context_2
   }
 }
 `
@@ -21,7 +22,7 @@ const Header_leftBlock =()=> (
             return (
               <div className="callBlock d-lg-flex">
                 <div className='callMenu callMenuDesktop d-lg-block d-none'>
-                 {data.contacts.map((contact, index) =>(
+                 {data.contactsphone.map((contact, index) =>( 
                     <a key={index} href={"tel:"+contact.context_1}><span><b>{contact.context_1}</b> {contact.context_2}</span><br /></a>
                  ))}
                 </div>

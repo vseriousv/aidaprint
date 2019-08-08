@@ -2,9 +2,11 @@ import React, {Component}       from 'react'
 import { Query }                from 'react-apollo'
 import gql                      from 'graphql-tag'
 import { Container, Row, Col }  from 'react-bootstrap'
-import Link                     from 'next/link'
+//import Link                     from 'next/link'
+import { Link, Router } from '../../routes'
 
 import Header_MobilMenu         from './Header_MobilMenu'
+import Header_loading           from './Header_loading'
 
 export const componentNavbarQuery = gql`
 query navbar {
@@ -40,11 +42,13 @@ export default class Header_navbar extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll);
   }
+
   handleScroll(){
+    console.log(window.scrollY);
     var fixedMenuBar = document.getElementById("fixedMenuBar");
     var MegaMenu4 = document.getElementById("megaMenu4");
     var MegaMenu1 = document.getElementById("megaMenu1");
-    if(window.pageYOffset <= "80"){
+    if(window.scrollY <= "80"){
         fixedMenuBar.classList.remove("fixed-top");
         MegaMenu1.classList.add("MegaMenu-top-one");
         MegaMenu1.classList.remove("MegaMenu-top-two");
@@ -106,7 +110,7 @@ export default class Header_navbar extends Component {
       <Query query={componentNavbarQuery}>
           {({loading, error, data }) => {
             if (error) return `Error! ${error.message}`;
-            if (loading) return <div>Loading</div>
+            if (loading) return <Header_loading />
               return (
                 <div id="fixedMenuBar" className="container-fluid ">
                   <Row className="navbar-color-grey d-flex justify-content-between">

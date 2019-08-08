@@ -13,7 +13,11 @@ const PrintsPreviewBlock =()=> {
    query printspreviewblock{
      printspreviewblock(url: "/prints/${ name }"){
        id
-       img
+       img{
+          name
+          type
+          path
+        }
        opsection{
          name
          text
@@ -40,7 +44,7 @@ const PrintsPreviewBlock =()=> {
               <div className="container">
                 <div className="row">
                   <div className="col-md-6 col-12">
-                    <img className="img-fluid" src={'/static/images/PrintsPreviewBlocks/'+data.printspreviewblock.img+'.png'} />
+                    <img className="img-fluid" src={'/static/'+data.printspreviewblock.img.type+data.printspreviewblock.img.path+data.printspreviewblock.img.name} />
                   </div>
                   <div className="col-md-6 col-12">
                     <div className="row">

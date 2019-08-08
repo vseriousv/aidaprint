@@ -1,26 +1,24 @@
-import App from '../../../components/App'
+import App from '../components/App'
 import React from 'react'
 import Head from 'next/head'
-import { useRouter } from 'next/router'
+import { withRouter } from 'next/router'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 
-import Header from '../../../components/Header/Header'
-import Footer from '../../../components/Footer/Footer'
-import PrintsPreviewBlock from '../../../components/Prints/PrintsPreviewBlock/PrintsPreviewBlock'
-import PrintsAdvantageCardBlocks from '../../../components/Prints/PrintsAdvantageCardBlocks/PrintsAdvantageCardBlocks'
-import ProductionPortfolio from '../../../components/ProductionPortfolio/ProductionPortfolio'
-import PrintsCalculator from '../../../components/Prints/PrintsCalculator/PrintsCalculator'
+import Header from '../components/Header/Header'
+import Footer from '../components/Footer/Footer'
+import PrintsPreviewBlock from '../components/Prints/PrintsPreviewBlock/PrintsPreviewBlock'
+import PrintsAdvantageCardBlocks from '../components/Prints/PrintsAdvantageCardBlocks/PrintsAdvantageCardBlocks'
+import ProductionPortfolio from '../components/ProductionPortfolio/ProductionPortfolio'
+import PrintsCalculator from '../components/Prints/PrintsCalculator/PrintsCalculator'
 
 import './index.less'
 
-const Prints = () => {
-  const router = useRouter()
-  const { name } = router.query
-
-  const pageQuery = gql`
+class Prints extends React.Component {
+  static route = '/prints/:name';
+  pageQuery = gql`
   query page{
-    page(url: "/prints/${ name }"){
+    page(url: "/prints/${this.props.router.query.name}"){
       id
       name
       text
@@ -29,9 +27,10 @@ const Prints = () => {
     }
   }
   `
-  return (
+  render () {
+    return(
     <App>
-      <Query query={pageQuery}>
+      <Query query={this.pageQuery}>
            {({loading, error, data }) => {
               if (error) return `Error! ${error.message}`;
               if (loading) return <div>Loading</div>
@@ -52,6 +51,6 @@ const Prints = () => {
         <Footer />
     </App>
   );
-}
+}}
 
-export default Prints
+export default withRouter(Prints)

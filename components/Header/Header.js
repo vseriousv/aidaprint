@@ -1,5 +1,4 @@
 import Link                     from 'next/link'
-import { withRouter }           from 'next/router'
 import { Container, Row, Col }  from 'react-bootstrap'
 import Header_leftBlock         from './Header_leftBlock'
 import Header_rightBlock        from './Header_rightBlock'
@@ -11,7 +10,7 @@ import './Header.less';
 
 
 
-const Header = ({ router: { pathname } }) => (
+const Header = () => (
 
   <header>
     <Container className="header-Bar">
@@ -26,4 +25,4 @@ const Header = ({ router: { pathname } }) => (
   </header>
 )
 
-export default withRouter(Header)
+export default Header;
