@@ -46,7 +46,7 @@ class Prints extends React.Component {
         <Header />
         <PrintsPreviewBlock />
         <PrintsAdvantageCardBlocks />
-        <PrintsCalculator />
+        {/* <PrintsCalculator />*/}
         <ProductionPortfolio />
         <Footer />
     </App>
