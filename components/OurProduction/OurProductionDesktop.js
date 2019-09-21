@@ -1,13 +1,11 @@
-import React, {Component} from 'react';
-import { Query }                from 'react-apollo'
-import gql                      from 'graphql-tag'
-import Link                     from 'next/link'
-import { Container, Row, Col, Carousel }  from 'react-bootstrap'
+import React, { useState } from 'react';
+import { useQuery } from '@apollo/react-hooks'
+import gql from 'graphql-tag'
 
 import './OurProduction.less';
 
-export const opsectionQuery = gql`
-query opsection{
+export const OPSECTION_QUERY = gql`
+query OPSECTION_QUERY{
   opsection{
     id
     section_id
@@ -23,9 +21,9 @@ query opsection{
   }
 }
 `
-export default class OurProduction extends Component{
+export default function OurProductionDesktop () {
 
-  handleClickOnLink = (event) => {
+  const handleClickOnLink = (event) => {
     event.preventDefault();
     /* переменным elementID присваиваем id+block элемента по которому кликнули и
     screenElementID присваиваем screen+id элемента по которому кликнули*/
@@ -49,74 +47,77 @@ export default class OurProduction extends Component{
      значениями переменных*/
     elementID.classList.toggle("cartProductActive");
     screenElementID.classList.toggle("d-none");
-}
+  }
 
-  render() {
-    return(
-      <Query query={opsectionQuery}>
-       {({loading, error, data}) => {
-          if (error) return `Error! ${error.message}`;
-          if (loading) return <div>Loading</div>
-          return (
-            <div className="container-fluid BlockChooseProductComponent d-none d-lg-block desktopView">
-              {/*Блок с карточками выбора продукции открыт*/}
-              <div className="container my-5">
-                  <div className="rowCartProduct my-2">
-                  {data.opsection.map(i => {
-                      return (
-                            <div key={i.section_id} id={"cartProduct"+i.section_id+"block"} className={"h-100 cartProduct cartProduct"+i.section_id+" "+i.classNameActive}>
-                                <div className="cartIcon position-absolute w-100"><h1 className="aidaFontProduct text-center w-100">{i.text}</h1></div>
-                                <div className="cartText position-absolute w-100"><h3 className="text-center w-100 aidaText ">{i.name}</h3></div>
-                                <div id={"cartProduct"+i.section_id} onClick={this.handleClickOnLink} className="cartBGR"></div>
-                            </div>
-                        );
-                  })}
-                  </div>
-              </div>
-              {/*Блок с карточками выбора продукции ЗАКРЫТ*/}
-              {/*-----------------------------------------*/}
-    {/*Блок под карточками в котором отображается то какая карточка выбрана*/}
-    <div className="container RenderProductionCartID mb-4">
-        <div className="w-100 position-relative">
-    {data.opsection.map(i => {
-                return (
-                  <div key={i.section_id} id={"screencartProduct"+i.section_id} className={"w-100 renderTransition screencartProductElement position-absolute "+i.className}>
-    <div className="container">
-        <div className="row">
-            <div className="col-xl-2"></div>
-            <div className="col-xl-2 col-lg-3 col-md-0 col-0"><hr className="hrLine justify-content-center"/></div>
-            <div className="col-xl-4 col-lg-6 col-md-12 col-12 my-auto"><h6 className="text-uppercase text-center font-weight-bold my-auto">{i.name}</h6></div>
-            <div className="col-xl-2 col-lg-3 col-md-0 col-0"><hr className="hrLine justify-content-center"/></div>
-            <div className="col-xl-2"></div>
-        </div>
-{/* отображение самой карточки */}
-        <div className="row mt-3">
-        {i.valueCart.map((item, index) => {
-          return(
-            <div key={index} className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 px-1">
-               <img src={"/static/images/OurProduction/"+item.img+".jpg"} className="img-fluid" />
-               <h6 className="text-uppercase text-center font-weight-bold my-3 small">{item.hCart} <small>{item.pText}₽</small></h6>
-                <div className="BTN-cart">
-                    <h6>Заказать</h6>
-                    <div className={"BGR-BTN-cart BGR-BTN-cart1"}></div>
-                </div>
-            </div>
-          );
-        })}
+  const { loading, error, data, fetchMore, networkStatus } = useQuery(
+    OPSECTION_QUERY,
+    {
+      notifyOnNetworkStatusChange: true
+    }
+  )
 
+  if (error) return <div>ERROR</div>
+  if (loading) return <div>Loading</div>
 
-        </div>
-{/*Конец отображения самой карточки */}
-    </div>
+  const { opsection } = data
+
+  return (
+    <div className="container-fluid BlockChooseProductComponent d-none d-lg-block desktopView">
+      {/*Блок с карточками выбора продукции открыт*/}
+      <div className="container my-5">
+          <div className="rowCartProduct my-2">
+          {opsection.map(i => {
+              return (
+                    <div key={i.section_id} id={"cartProduct"+i.section_id+"block"} className={"h-100 cartProduct cartProduct"+i.section_id+" "+i.classNameActive}>
+                        <div className="cartIcon position-absolute w-100"><h1 className="aidaFontProduct text-center w-100">{i.text}</h1></div>
+                        <div className="cartText position-absolute w-100"><h3 className="text-center w-100 aidaText ">{i.name}</h3></div>
+                        <div id={"cartProduct"+i.section_id} onClick={handleClickOnLink} className="cartBGR"></div>
+                    </div>
+                );
+          })}
+          </div>
+      </div>
+      {/*Блок с карточками выбора продукции ЗАКРЫТ*/}
+      {/*-----------------------------------------*/}
+{/*Блок под карточками в котором отображается то какая карточка выбрана*/}
+<div className="container RenderProductionCartID mb-4">
+<div className="w-100 position-relative">
+{data.opsection.map(i => {
+        return (
+          <div key={i.section_id} id={"screencartProduct"+i.section_id} className={"w-100 renderTransition screencartProductElement position-absolute "+i.className}>
+<div className="container">
+<div className="row">
+    <div className="col-xl-2"></div>
+    <div className="col-xl-2 col-lg-3 col-md-0 col-0"><hr className="hrLine justify-content-center"/></div>
+    <div className="col-xl-4 col-lg-6 col-md-12 col-12 my-auto"><h6 className="text-uppercase text-center font-weight-bold my-auto">{i.name}</h6></div>
+    <div className="col-xl-2 col-lg-3 col-md-0 col-0"><hr className="hrLine justify-content-center"/></div>
+    <div className="col-xl-2"></div>
 </div>
-            )
-        })}
+{/* отображение самой карточки */}
+<div className="row mt-3">
+{i.valueCart.map((item, index) => {
+  return(
+    <div key={index} className="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12 px-1">
+       <img src={"/static/images/OurProduction/"+item.img+".jpg"} className="img-fluid" />
+       <h6 className="text-uppercase text-center font-weight-bold my-3 small">{item.hCart} <small>{item.pText}₽</small></h6>
+        <div className="BTN-cart">
+            <h6>Заказать</h6>
+            <div className={"BGR-BTN-cart BGR-BTN-cart1"}></div>
         </div>
+    </div>
+  );
+})}
+
+
+</div>
+{/*Конец отображения самой карточки */}
+</div>
+</div>
+    )
+})}
+</div>
 </div>
 {/*Блок под карточками в котором отображается то какая карточка выбрана ЗАКРЫТ*/}
-            </div>
-          );
-        }}
-      </Query>
-    );
-}}
+    </div>
+  ) 
+}

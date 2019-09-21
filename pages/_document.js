@@ -3,13 +3,9 @@ In production the stylesheet is compiled to .next/static/style.css and served fr
 You have to include it into the page using either next/head or a custom _document.js, as is being done in this file.
 */
 import React    from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Head, Main, NextScript } from 'next/document'
 
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx)
-    return { ...initialProps }
-  }
   render () {
     return (
       <html lang="en">
@@ -21,7 +17,7 @@ export default class MyDocument extends Document {
             rel="stylesheet"
             href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
             integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossorigin="anonymous"
+            crossOrigin="anonymous"
           />
         <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
         </Head>

@@ -3,17 +3,27 @@ import Head from 'next/head'
 
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
+import AboutBlock from '../components/AboutBlock/AboutBlock'
+import AboutAdvantageBlock from '../components/AboutAdvantageBlock/AboutAdvantageBlock'
+import AboutWeWorking from '../components/AboutWeWorking/AboutWeWorking'
+import AboutGaranties from '../components/AboutGaranties/AboutGaranties'
+import AboutHistory from '../components/AboutHistory/AboutHistory'
 
-import './index.less'
+import { withApollo } from '../lib/apollo'
 
-export default () => (
+const About = (props) => (
   <App>
     <Head>
       <title>Aidaprint | О нас</title>
     </Head>
     <Header />
-      <div className="hello_Two text-center"><h1>This is The About Page</h1></div>
-      <div className="hello_one text-center"><h2> At the moment the page is under construction!</h2></div>
+    <AboutBlock />
+    <AboutAdvantageBlock />
+    <AboutWeWorking />
+    <AboutGaranties />
+    <AboutHistory />
     <Footer />
   </App>
 )
+
+export default withApollo(About)
