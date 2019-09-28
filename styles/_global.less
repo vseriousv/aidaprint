@@ -146,9 +146,15 @@ body{
 	@media (max-width: 768px){.box-menu p{font-size: 0.6875rem;
 		line-height: 14px;}}
 	
-	.advantages_1 {background-color: #f9f9b0;}
-	.advantages_2 {background-color: #b6fae3;}
-	.advantages_3 {background-color: #c8b0f9;}
+	.advantages_1, .advantages_2, .advantages_3 {background: none; 
+		transition: 0.2s linear;}
+	.advantages_1:hover {background-color: #f9f9b0;}
+	.advantages_2:hover {background-color: #b6fae3;}
+	.advantages_3:hover {background-color: #c8b0f9;}
+	.color_1 {background-color: #f9f9b0;}
+	.color_2 {background-color: #b6fae3;}
+	.color_3 {background-color: #c8b0f9;}
+
 	.equipment{height: 150px;}
 	.equipment img {height:100%;}
 	.service{height: 150px;}

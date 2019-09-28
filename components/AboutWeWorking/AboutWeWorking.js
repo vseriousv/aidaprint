@@ -27,7 +27,7 @@ export default class AboutWeWorking extends Component{
                 <div className="container">
                     <div className="row">
                         <div className="col-4 px-1 px-sm-3">
-                            <div className="work advantages_1 d-flex px-4 py-4 py-md-5 w-100 h-25 justify-content-center align-items-center">
+                            <div className="work color_1 d-flex px-4 py-4 py-md-5 w-100 h-25 justify-content-center align-items-center">
                                 <div className="arrow">
                                     <img src="/static/images/otherimage/arrow.svg" alt="Ниже" />
                                 </div>
@@ -58,7 +58,7 @@ export default class AboutWeWorking extends Component{
                             </div>
                         </div>
                         <div className="col-4 px-1 px-sm-3">
-                            <div className="work advantages_2 d-flex px-4 py-4 py-md-5  w-100 justify-content-center align-items-center">
+                            <div className="work color_2 d-flex px-4 py-4 py-md-5  w-100 justify-content-center align-items-center">
                                 <div className="arrow">
                                     <img src="/static/images/otherimage/arrow.svg"  alt="Ниже" />
                                 </div>
@@ -105,7 +105,7 @@ export default class AboutWeWorking extends Component{
                             </div>
                         </div>
                         <div className="col-4 px-1 px-sm-3">
-                            <div className="work advantages_3 d-flex px-4 py-4 py-md-5  w-100  justify-content-center align-items-center height20prcent">
+                            <div className="work color_3 d-flex px-4 py-4 py-md-5  w-100  justify-content-center align-items-center height20prcent">
                                 <div className="arrow">
                                     <img src="/static/images/otherimage/arrow.svg" alt="Ниже" />
                                 </div>

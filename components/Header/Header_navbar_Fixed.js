@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { useQuery } from '@apollo/react-hooks'
-import { NetworkStatus } from 'apollo-client'
 import gql from 'graphql-tag'
-import { Container, Row, Col }  from 'react-bootstrap'
+import { Row }  from 'react-bootstrap'
 import Link from 'next/link';
 
 import { withRouter }   from 'next/router'
 
-import Navbar_Sections from './Navbar_Sections'
+import Navbar_Sections_Fixed from './Navbar_Sections_Fixed'
 import Header_MobilMenu from './Header_MobilMenu'
 
 export const COMPONENT_NAVBAR_QUERY = gql`
@@ -27,6 +26,25 @@ export const COMPONENT_NAVBAR_QUERY = gql`
 
 function Header_navbar (props) {
 
+    // const fixed_Scroll = () => {
+    
+  //   // var fixedMenuBar = document.getElementById("fixedMenuBar");
+  //   // var MegaMenu4 = document.getElementById("megaMenu4");
+  //   // var MegaMenu1 = document.getElementById("megaMenu1");
+  //   // if(props.scroll_Y <= "80"){
+  //   //     fixedMenuBar.classList.remove("fixed-top");
+  //   //     MegaMenu1.classList.add("MegaMenu-top-one");
+  //   //     MegaMenu1.classList.remove("MegaMenu-top-two");
+  //   //     MegaMenu4.classList.add("MegaMenu-top-one");
+  //   //     MegaMenu4.classList.remove("MegaMenu-top-two");
+  //   // }else{
+  //   //     fixedMenuBar.classList.add("fixed-top");
+  //   //     MegaMenu1.classList.remove("MegaMenu-top-one");
+  //   //     MegaMenu1.classList.add("MegaMenu-top-two");
+  //   //     MegaMenu4.classList.remove("MegaMenu-top-one");
+  //   //     MegaMenu4.classList.add("MegaMenu-top-two");
+  //   // }
+  // }
 
   const handleClick = (event) => {
     event.preventDefault()
@@ -41,10 +59,10 @@ function Header_navbar (props) {
   }
 
   const handleClickWindowClose = () => {
-    let statusActive = document.getElementsByClassName('statusActive')
-      for (let i=1; i< statusActive.length+1;i++){
-        let elementMegaMenu = document.getElementById("navbarItemID"+i)
-        elementMegaMenu.classList.remove("active");
+    var statusActive = document.getElementsByClassName('statusActive2')
+      for (var i=1; i< statusActive.length+1;i++){
+        var elementMegaMenu = document.getElementById("navbar2ItemID"+i)
+        elementMegaMenu.classList.remove("active")
       } 
     setMegaMenu('');
   }
@@ -64,7 +82,7 @@ function Header_navbar (props) {
   const { componentNavbar } = data
 
   return (
-    <div id="fixedMenuBar" className="container-fluid">
+    <div id="fixedMenuBar" className="container-fluid fixed-top">
       <Row className="navbar-color-grey d-flex justify-content-between">
         <ul className="nav d-none d-md-flex">
           {
@@ -74,8 +92,8 @@ function Header_navbar (props) {
                   <li key={item.id} className="nav-item">
                     <Link href={item.link}>
                       <a
-                      id={"navbarItemID"+item.id}
-                      className="nav-link statusActive"
+                      id={"navbar2ItemID"+item.id}
+                      className="nav-link statusActive2"
                       data-megamenu={"megaMenu"+item.id}
                       onClick={handleClick}>{item.name}</a>
                     </Link>
@@ -86,8 +104,8 @@ function Header_navbar (props) {
                   <li key={item.id} className="nav-item">
                     <Link href={item.link}>
                       <a
-                      id={"navbarItemID"+item.id}
-                      className="nav-link statusActive"
+                      id={"navbar2ItemID"+item.id}
+                      className="nav-link statusActive2"
                       data-megamenu={"megaMenu"+item.id}
                       >{item.name}</a>
                     </Link>
@@ -100,10 +118,9 @@ function Header_navbar (props) {
         <div className="col-6 d-md-none my-auto d-flex justify-content-start">
           <Header_MobilMenu />
         </div>
-        {/* <div className="col-6 d-md-none my-auto d-flex justify-content-end">S</div> */}
+        {/* <div className="col-6 d-md-none my-auto d-flex justify-content-end">Search</div> */}
       </Row>
-      <Navbar_Sections  megaMenu={megaMenu} 
-                        handleClickWindowClose={handleClickWindowClose}/>
+      <Navbar_Sections_Fixed megaMenu={megaMenu} handleClickWindowClose={handleClickWindowClose}/>
     </div>
   ) 
 }
