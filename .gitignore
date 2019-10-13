@@ -1,3 +1,5 @@
-node_modules
-.next
-.idea
+/node_modules
+/.next
+/.idea
+/env-config.js
+/.babelrc.js
