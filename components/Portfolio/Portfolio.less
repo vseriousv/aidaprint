@@ -1,0 +1,53 @@
+@import '../../styles/_global.less';
+
+.portfolio {
+	margin-top: 70px;
+	margin-bottom: 70px;
+}
+
+.card_portfolio {
+	margin-bottom: 50px;
+	flex-direction: column;
+	width: 100%;
+}
+
+.box_img_portfolio {
+	display: flex;
+	justify-content: center;
+	margin-bottom: 20px;
+	width: 100%;
+	overflow: hidden;
+}
+
+.card_portfolio p {
+	font-size: 1rem;
+	font-weight: bold;
+	text-transform: uppercase;
+	margin-bottom: 0;
+	padding-bottom: 0;
+	text-align: center;	
+}
+
+.box_img {
+	width: 350px;
+	height: 250px;
+}
+
+@media (max-width: 992px) {
+	.box_img {
+		width: 250px;
+		height: 150px;
+	}
+	.card_portfolio p {
+		font-size: 0.875rem;
+	}
+}
+@media (max-width: 576px) {
+	.box_img {
+		width: 150px;
+		height: 100px;
+	}
+	.card_portfolio p {
+		font-size: 0.75rem;
+	}
+}
