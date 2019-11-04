@@ -37,7 +37,13 @@ export default class Porfolio extends Component{
                                 </a>
                             </div>
                             <p>{item.text}</p>
-                        </div>))
+                        </div>
+                        
+                        
+                        
+                        
+                        
+                        ))
                     }
                 </div>
             </div>
