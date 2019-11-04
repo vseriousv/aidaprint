@@ -9,6 +9,18 @@
 	margin-bottom: 50px;
 	flex-direction: column;
 	width: 100%;
+	p {
+		font-size: 1rem;
+		font-weight: bold;
+		text-transform: uppercase;
+		margin-bottom: 0;
+		padding-bottom: 0;
+		text-align: center;	
+	}
+	a{
+		text-decoration: none;
+		color: black;
+	}
 }
 
 .box_img_portfolio {
@@ -19,18 +31,10 @@
 	overflow: hidden;
 }
 
-.card_portfolio p {
-	font-size: 1rem;
-	font-weight: bold;
-	text-transform: uppercase;
-	margin-bottom: 0;
-	padding-bottom: 0;
-	text-align: center;	
-}
-
 .box_img {
 	width: 350px;
 	height: 250px;
+	transition: 0.5s ease-in-out;
 }
 
 @media (max-width: 992px) {
@@ -49,5 +53,16 @@
 	}
 	.card_portfolio p {
 		font-size: 0.75rem;
+	}
+}
+
+.card_portfolio:hover {
+	.box_img_portfolio .box_img {
+		transform: scale(1.2);
+		transition: 0.5s ease-in-out;
+	}
+	a {
+		color: @primaryColor;
+		font-weight: bold;
 	}
 }
