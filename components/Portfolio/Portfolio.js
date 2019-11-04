@@ -38,20 +38,8 @@ export default class Porfolio extends Component{
                             </div>
                             <p>{item.text}</p>
                         </div>
-                        
-                        
-                        
-                        
-                        
                         ))
                     }
-                    <div>                                
-                        <a href=""> 
-                            <div className="box_img" style={{ 
-                                backgroundImage: "url('/static/images/Portfolio/"+item.img+"')", 
-                                backgroundSize: "cover"}}>
-                            </div>
-                        </a></div>
                 </div>
             </div>
 	    </div>
