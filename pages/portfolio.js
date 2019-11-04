@@ -7,10 +7,10 @@ import Portfolio from '../components/Portfolio/Portfolio'
 
 import { withApollo } from '../lib/apollo'
 
-const About = (props) => (
+const PortfolioIndex = (props) => (
   <App>
     <Head>
-      <title>Aidaprint | О нас</title>
+      <title>Aidaprint | Портфолио</title>
     </Head>
     <Header />
     <Portfolio />
@@ -18,4 +18,4 @@ const About = (props) => (
   </App>
 )
 
-export default withApollo(About)
+export default withApollo(PortfolioIndex)
