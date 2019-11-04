@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import { Container, Row, Col }  from 'react-bootstrap'
 
 import './Portfolio.less';
 
 export default class Porfolio extends Component{
+
     boxInformation = [
         { id: 1, img: "visitca.jpg", text: "Визитные карточки" },
         { id: 2, img: "diplom.jpg", text: "Дипломы грамоты" },
@@ -18,6 +18,7 @@ export default class Porfolio extends Component{
         { id: 11, img: "flyer.jpg", text: "Листовки, флаеры" },
         { id: 11, img: "puzzles.jpg", text: "Пазлы" }
     ]
+
   render() {
       
     return(
