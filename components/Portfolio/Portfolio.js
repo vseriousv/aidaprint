@@ -17,7 +17,9 @@ export default class Porfolio extends Component{
         { id: 9, img: "photoAbum.jpg", text: "Фотоальбомы" , url: "photoAbum"},
         { id: 10, img: "wedding.jpg", text: "Свадебные пригласительные" , url: "wedding"},
         { id: 11, img: "flyer.jpg", text: "Листовки, флаеры" , url: "flyer"},
-        { id: 11, img: "puzzles.jpg", text: "Пазлы" , url: "puzzles"}
+        { id: 12, img: "puzzles.jpg", text: "Пазлы" , url: "puzzles"},
+        { id: 13, img: "notebook.jpg", text: "Ежедневники" , url: "notebook"},
+        { id: 14, img: "postcard.jpg", text: "Открытки" , url: "postcard"}
     ]
 
   render() {

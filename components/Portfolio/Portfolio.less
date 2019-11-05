@@ -4,7 +4,28 @@
 	margin-top: 70px;
 	margin-bottom: 70px;
 }
-
+.portfolio > .container > .boxButton {
+	width: 150px;
+	height: 40px;
+	display: block;
+	text-align: center;
+	position: relative;
+	border-radius: 20px;
+	transition: 0.3s ease-in-out;
+	a {text-decoration: none;
+		display: block;
+		font-size: 1.125rem;
+		color: @primaryColor;
+		padding: 9px 0;
+		cursor: pointer;
+		transition: 0.3s ease-in-out;}
+	&:hover a{color: white;transition: 0.3s ease-in-out;}
+	&:hover{
+		border-radius: 20px;
+		background-color: @primaryColor;
+		transition: 0.3s ease-in-out;
+	}	
+}
 .card_portfolio {
 	margin-bottom: 50px;
 	flex-direction: column;
