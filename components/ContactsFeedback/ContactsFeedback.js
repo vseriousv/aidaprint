@@ -1,13 +1,30 @@
 import React, {Component} from 'react';
-import Recaptcha from "react-recaptcha";
+import { ReCaptcha } from 'react-recaptcha-google'
 
 import './ContactsFeedback.less';
 
 export default class ContactsFeedback extends Component{
+	constructor(props, context) {
+		super(props, context);
+		this.onLoadRecaptcha = this.onLoadRecaptcha.bind(this);
+		this.verifyCallback = this.verifyCallback.bind(this);
+	}
 
-	verifyCallback = ()  => {
-		console.log('Done!!!!');
-	};
+	componentDidMount() {
+		if (this.captchaDemo) {
+			console.log("started, just a second...")
+			this.captchaDemo.reset();
+		}
+	}
+	onLoadRecaptcha() {
+		if (this.captchaDemo) {
+			this.captchaDemo.reset();
+		}
+	}
+	verifyCallback(recaptchaToken) {
+		// Here you will get the final recaptchaToken!!!
+		console.log(recaptchaToken, "<= your recaptcha token")
+	}
 
   render() {
     return(
@@ -26,22 +43,25 @@ export default class ContactsFeedback extends Component{
 						</div>
 					</div>
 					<div className="col-12 col-sm-6 security offset-sm-6 justify-content-center justify-content-sm-start">
-						<div className="capcha_box mb-4">
-							<Recaptcha
-								sitekey="6LeHA7oUAAAAABmSgN0MbTrSAjOSonBbqeaS43l3"
+						{/*<div className="capcha_box mb-4">*/}
+							<ReCaptcha
+								ref={(el) => {this.captchaDemo = el;}}
+								size="normal"
+								data-theme="light"
 								render="explicit"
-								className="captchaReact"
-								onloadCallback={this.verifyCallback}
+								sitekey="6LeHA7oUAAAAABmSgN0MbTrSAjOSonBbqeaS43l3"
+								onloadCallback={this.onLoadRecaptcha}
+								verifyCallback={this.verifyCallback}
 							/>
-						</div>
+						{/*</div>*/}
 						<div className="security_box mb-4">
 							<input className="check_cec" name="" type="checkbox" value="" id="defaultCheck2" />
-							 <label className="consent h_14 myblack" for="defaultCheck2">
+							 <label className="consent h_14 myblack" htmlFor="defaultCheck2">
 								 Я даю своё согласие на обработку персональных данных в соответствии с
                                     <a href="" className="site_rules">правилами сайта</a>
 							 </label>
 						</div>
-						<div class="data_button">
+						<div className="data_button">
 							<button className="button_send h_14 myblack"><strong>Отправить</strong></button>
 							<div className="button_send_before"></div>
 						</div>

@@ -12,11 +12,12 @@ import { withApollo } from '../lib/apollo'
 const Contact_us = (props) => (
   <App>
     <Head>
-      <title>Aidaprint | Контакты</title>
+        <title>Aidaprint | Контакты</title>
+        <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_6LeHA7oUAAAAABmSgN0MbTrSAjOSonBbqeaS43l3"></script>
     </Head>
     <Header />
     <ContactMap />
-    <ContactsAddress />    
+    <ContactsAddress />
     <ContactsFeedback />
     <Footer />
   </App>
