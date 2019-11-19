@@ -10,16 +10,17 @@ export default class MyDocument extends Document {
     return (
       <html lang="en">
         <Head>
-        <link rel="icon" type="image/png" href="/static/images/favicon-16x16.png" sizes="16x16" />
-        <link rel="icon" type="image/png" href="/static/images/favicon-32x32.png" sizes="32x32" />
-        <link rel="icon" type="image/png" href="/static/images/favicon-64x64.png" sizes="64x64" />
-        <link
-            rel="stylesheet"
-            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-            integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-            crossOrigin="anonymous"
-          />
-        <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+            <link rel="icon" type="image/png" href="/static/images/favicon-16x16.png" sizes="16x16" />
+            <link rel="icon" type="image/png" href="/static/images/favicon-32x32.png" sizes="32x32" />
+            <link rel="icon" type="image/png" href="/static/images/favicon-64x64.png" sizes="64x64" />
+            <link
+                rel="stylesheet"
+                href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+                integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+                crossOrigin="anonymous"
+              />
+            <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet" />
+            <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_6LepU8MUAAAAAI0wPoyuXi97aSLp4o90aQB2_lnJ"></script>
         </Head>
         <body>
           <Main />
