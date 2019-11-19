@@ -45,11 +45,11 @@ export default class ContactsFeedback extends Component{
 					<div className="col-12 col-sm-6 security offset-sm-6 justify-content-center justify-content-sm-start">
 						{/*<div className="capcha_box mb-4">*/}
 							<ReCaptcha
-								ref={(el) => {this.captchaDemo = el;}}
+								// ref={(el) => {this.captchaDemo = el;}}
 								size="normal"
 								data-theme="light"
 								render="explicit"
-								sitekey="6LeHA7oUAAAAABmSgN0MbTrSAjOSonBbqeaS43l3"
+								sitekey="6LepU8MUAAAAAI0wPoyuXi97aSLp4o90aQB2_lnJ"
 								onloadCallback={this.onLoadRecaptcha}
 								verifyCallback={this.verifyCallback}
 							/>
