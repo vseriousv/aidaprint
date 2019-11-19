@@ -13,7 +13,7 @@ const Contact_us = (props) => (
   <App>
     <Head>
         <title>Aidaprint | Контакты</title>
-        <script src="https://www.google.com/recaptcha/api.js?render=6LepU8MUAAAAAI0wPoyuXi97aSLp4o90aQB2_lnJ"></script>
+        <script src="https://www.google.com/recaptcha/api.js?render=_reCAPTCHA_6LepU8MUAAAAAI0wPoyuXi97aSLp4o90aQB2_lnJ"></script>
     </Head>
     <Header />
     <ContactMap />
