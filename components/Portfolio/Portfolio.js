@@ -27,10 +27,10 @@ export default class Porfolio extends Component{
     return(
         <div className="portfolio">
             <div className="container">
-                <div className="row d-flex">
+                <div className="row">
                     {
                         this.boxInformation.map(item => (   
-                        <div key={item.id} className="col-6 col-md-4 d-flex justify-content-top align-items-center card_portfolio">
+                        <div key={item.id} className="col-6 col-md-4 d-flex justify-content-top align-items-start card_portfolio">
                            <Link href={"/portfolio/" + item.url}>
                                 <a> 
                                     <div className="box_img_portfolio">

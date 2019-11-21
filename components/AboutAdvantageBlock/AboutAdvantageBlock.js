@@ -32,11 +32,11 @@ export default class AboutAdvantageBlock extends Component{
 									<img src="/static/images/otherimage/equipment.png" alt="Оснащенность" />
 								</div>
 								<div className="d-none d-md-block px-lg-4 pt-3 pb-md-4 pb-lg-5 px-md-3">
-									<h3 className="h_18_app myblack mb-2">Оснащенность</h3>
+									<h3 className="h_18_app myblack mb-2"><b>Оснащенность</b></h3>
 									<p className="h_14 myblack m-0">В парке нашей компании более 20 единиц печатного и поспечатного оборудования, более 10 технологий нанесения изображений</p>
 								</div>
 								<div className="d-md-none d-block px-sm-3 px-4 pt-2 pb-sm-4 pb-5">
-									<h3 className="h_14_app myblack mb-2">Оснащенность</h3>
+									<h3 className="h_14_app myblack mb-2"><b>Оснащенность</b></h3>
 									<p className="h_11 myblack m-0">В парке нашей компании более 20 единиц печатного и поспечатного оборудования, более 10 технологий нанесения изображений</p>
 								</div>
 							</div>
@@ -47,11 +47,11 @@ export default class AboutAdvantageBlock extends Component{
 									<img src="/static/images/otherimage/service.png" alt="Сервис" /> 
 								</div>
 								<div className="d-none d-md-block px-lg-4 pt-3 pb-md-4 pb-lg-5 px-md-3">
-									<h3 className="h_18_app myblack mb-2">Сервис</h3>
+									<h3 className="h_18_app myblack mb-2"><b>Сервис</b></h3>
 									<p className="h_14 myblack m-0">Мы ценим ваше время, бережем нервы и экономим деньги. Поэтому предлагаем удобный сервис заказа, доставку готовой продукции, бесплатные консультации</p>
 								</div>
 								<div className="d-md-none d-block px-sm-3 px-4 pt-2 pb-sm-4 pb-5">
-									<p className="h_14_app myblack mb-2">Сервис</p>
+									<p className="h_14_app myblack mb-2"><b>Сервис</b></p>
 									<p className="h_11 myblack m-0">Мы ценим ваше время, бережем нервы и экономим деньги. Поэтому предлагаем удобный сервис заказа, доставку готовой продукции, бесплатные консультации</p>
 								</div>
 							</div>
@@ -62,11 +62,11 @@ export default class AboutAdvantageBlock extends Component{
 									<img src="/static/images/otherimage/competence.png" alt="Компетентность" />
 								</div>
 								<div className="d-none d-md-block px-lg-4 pt-3 pb-md-4 pb-lg-5 px-md-3">
-									<h3 className="h_18_app myblack mb-2">Компетентность</h3>
+									<h3 className="h_18_app myblack mb-2"><b>Компетентность</b></h3>
 									<p className="h_14 myblack m-0">Мы прекрасно разбираемся в том, что делаем, у нас работает 15 сотрудников различной специализации и высокого уровня профессионализма</p>
 								</div>
 								<div className="d-md-none d-block px-sm-3 px-4 pt-2 pb-sm-4 pb-5">
-									<h3 className="h_14_app myblack mb-2">Компетентность</h3>
+									<h3 className="h_14_app myblack mb-2"><b>Компетентность</b></h3>
 									<p className="h_11 myblack m-0">Мы прекрасно разбираемся в том, что делаем, у нас работает 15 сотрудников различной специализации и высокого уровня профессионализма</p>
 								</div>
 							</div>
