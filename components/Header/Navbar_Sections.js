@@ -26,15 +26,15 @@ function Navbar_Sections (props) {
 
   const [pageSection, setPageSection] = useState(0);
 
-  const handleClickPageMenu = () => {
+  const handleClickPageMenu = (event) => {
     let idElement = document.getElementById(event.target.id)
     let dataElementID = idElement.getAttribute('data-nameid');
 
     setPageSection(dataElementID);
-    
-    var pagesViewMegaMenu = document.getElementsByClassName("pagesViewMegaMenu");
-    for (var i=0; i<pagesViewMegaMenu.length; i++){
-      var NonTargetElement2 = document.getElementById("SectionID_"+i);
+
+    var SectionsInMegaMenu = document.getElementsByClassName("SectionsInMegaMenu");
+    for (var i=0; i<SectionsInMegaMenu.length; i++){
+      var  NonTargetElement2 = document.getElementById(SectionsInMegaMenu[i].id);
       NonTargetElement2.classList.remove('active');
     }
     idElement.classList.add('active');
@@ -49,10 +49,10 @@ function Navbar_Sections (props) {
   if (error) return <div>ERROR</div>
   if (loading) return <div>Loading</div>
 
-  const { sections } = data  
+  const { sections } = data
 
   switch(props.megaMenu){
-    case 'megaMenu1': 
+    case 'megaMenu1':
       return (
         <>
         <div id="windowCloseClick" className="windowCloseClick" onClick={props.handleClickWindowClose}></div>
@@ -63,20 +63,20 @@ function Navbar_Sections (props) {
             {sections.map((section, index)=>{
               if(section.viewMagaMenu == true && index==0){
                 return (
-                  <div  key={"section"+section.id} 
-                        id={"SectionID_"+index} 
-                        className="SectionsInMegaMenu active" 
-                        data-nameid={index} 
+                  <div  key={"section"+section.id}
+                        id={"SectionID_"+index}
+                        className="SectionsInMegaMenu active"
+                        data-nameid={index}
                         onClick={handleClickPageMenu}>
                     {section.name}
                   </div>
                 );
               }else if(section.viewMagaMenu == true){
                 return (
-                  <div  key={"section"+section.id} 
-                        id={"SectionID_"+index} 
-                        className="SectionsInMegaMenu" 
-                        data-nameid={index} 
+                  <div  key={"section"+section.id}
+                        id={"SectionID_"+index}
+                        className="SectionsInMegaMenu"
+                        data-nameid={index}
                         onClick={handleClickPageMenu}>
                     {section.name}
                   </div>
@@ -131,7 +131,7 @@ function Navbar_Sections (props) {
         </>
       );
       break;
-    case 'megaMenu4': 
+    case 'megaMenu4':
       return (
         <>
         <div id="windowCloseClick" className="windowCloseClick" onClick={props.handleClickWindowClose}></div>
