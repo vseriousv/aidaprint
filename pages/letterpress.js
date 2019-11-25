@@ -3,19 +3,19 @@ import Head from 'next/head'
 
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer'
-import FlatPrint from '../components/Technologes/FlatPrint'
+import Letterpress from '../components/Technologes/Letterpress'
 
 import { withApollo } from '../lib/apollo'
 
-const flatPrint = (props) => (
+const letterpress = (props) => (
   <App>
     <Head>
-      <title>Aidaprint | Технологии | Офсетная печать</title>
+      <title>Aidaprint | Технологии | Высокая печать</title>
     </Head>
     <Header />
-    <FlatPrint />
+    <Letterpress />
     <Footer />
   </App>
 )
 
-export default withApollo(flatPrint)
+export default withApollo(letterpress)

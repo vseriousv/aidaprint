@@ -7,7 +7,7 @@ import TechnicalRequirements from '../components/Technologes/TechnicalRequiremen
 
 import { withApollo } from '../lib/apollo'
 
-const Requirements = (props) => (
+const technicalRequirements = (props) => (
   <App>
     <Head>
       <title>Aidaprint | Технологии | Технические требоваия</title>
@@ -18,4 +18,4 @@ const Requirements = (props) => (
   </App>
 )
 
-export default withApollo(Requirements)
+export default withApollo(technicalRequirements)
