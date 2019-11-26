@@ -12,7 +12,7 @@ export default class DigitalPrinting extends Component{
                 <div className="row">
                     <div className="titleTechnologes py-3"><b>Цифровая печать (Электрография)</b></div>
                     <div className="boxTxtTechnologes ">
-                        <p className="mb-2">Макет, не соответствующий требованиям может быть:</p>
+                        <p className="mb-3">Макет, не соответствующий требованиям может быть:</p>
                         <ol className="mb-3">
                             <li><b>Формирование изображения.</b> <br />
                                 «Скрытое» изображение получают на поверхности фоторецептора с помощью 

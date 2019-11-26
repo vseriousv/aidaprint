@@ -11,7 +11,7 @@ export default class UVprinting extends Component{
             <div className="container">
                 <div className="row">
                     <div className="titleTechnologes py-3 w-100"><b>УФ печать</b></div>
-                    <p className="titleDescription py-3"><b>Принцип сольвентной печати</b></p>
+                    <p className="titleDescription pb-3"><b>Принцип сольвентной печати</b></p>
                     <div className="boxTxtTechnologes ">
                         <p>Принцип УФ печати построен на принципе отверждения краски. Если в классических 
                             методиках печати краска закрепляется разными способами: за счет нагрева материала 
@@ -46,16 +46,18 @@ export default class UVprinting extends Component{
                     </div>
                     <p className="titleDescription py-3"><b>Плюсы и минусы УФ печати</b></p>
                     <div className="boxTxtTechnologes mb-4">
-                        <p>Плюсы:</p>
-                        <ul className="my-3">
-                            <li>Возможность нанесения изображения практически на любую поверхность</li>
-                            <li>Высокая скорость закрепления изображения</li>
-                        </ul>
-                        <p>Минусы:</p>
-                        <ul>
-                            <li>Более высокая стоимость печати по сравнению с традициоными аналогами</li>
-                            <li>Высокие требования к транспортировке и хранению красок</li>
-                        </ul>
+                        <p>Плюсы:
+                            <ul className="mb-3 mt-2">
+                                <li>Возможность нанесения изображения практически на любую поверхность</li>
+                                <li>Высокая скорость закрепления изображения</li>
+                            </ul>
+                        </p>
+                        <p>Минусы:
+                            <ul className="mt-2">
+                                <li>Более высокая стоимость печати по сравнению с традициоными аналогами</li>
+                                <li>Высокие требования к транспортировке и хранению красок</li>
+                            </ul>
+                        </p>
                     </div>
                 </div>
             </div>

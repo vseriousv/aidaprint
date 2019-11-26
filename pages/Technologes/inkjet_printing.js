@@ -1,11 +1,11 @@
-import App from '../components/App'
+import App from '../../components/App'
 import Head from 'next/head'
 
-import Header from '../components/Header/Header'
-import Footer from '../components/Footer/Footer'
-import InkjetPrinting from '../components/Technologes/InkjetPrinting'
+import Header from '../../components/Header/Header'
+import Footer from '../../components/Footer/Footer'
+import InkjetPrinting from '../../components/Technologes/InkjetPrinting'
 
-import { withApollo } from '../lib/apollo'
+import { withApollo } from '../../lib/apollo'
 
 const inkjetPrinting = (props) => (
   <App>

@@ -11,7 +11,7 @@ export default class LatexPrint extends Component{
             <div className="container">
                 <div className="row">
                     <div className="titleTechnologes py-3 w-100"><b>Латексная печать</b></div>
-                    <p className="titleDescription py-3"><b>Принцип латексной печати</b></p>
+                    <p className="titleDescription pb-3"><b>Принцип латексной печати</b></p>
                     <div className="boxTxtTechnologes ">
                         <p>В основе латексной печати лежит тот же принцип, что и в <a href="">струйной печати</a>. 
                             В качестве наносимого материала используются пигментные чернила на основе 
@@ -41,17 +41,19 @@ export default class LatexPrint extends Component{
                     </div>
                     <p className="titleDescription py-3"><b>Плюсы и минусы латексной печати</b></p>
                     <div className="boxTxtTechnologes mb-4">
-                        <p>Плюсы:</p>
-                        <ul className="my-3">
-                            <li>Высокое качество печати</li>
-                            <li>Экологичность</li>
-                            <li>Долговечность</li>
-                        </ul>
-                        <p>Минусы:</p>
-                        <ul>
-                            <li>Не высокая производительность</li>
-                            <li>Высокая себестоимость</li>
-                        </ul>
+                        <p>Плюсы:
+                            <ul className="mb-3 mt-2">
+                                <li>Высокое качество печати</li>
+                                <li>Экологичность</li>
+                                <li>Долговечность</li>
+                            </ul>
+                        </p>
+                        <p>Минусы:
+                            <ul className="mt-2">
+                                <li>Не высокая производительность</li>
+                                <li>Высокая себестоимость</li>
+                            </ul>
+                        </p>
                     </div>
                     <div className="box_img w-100">
                         <img className="imgInkjetPrinting" src="/static/images/Technologes/LatexPrint.svg" />
